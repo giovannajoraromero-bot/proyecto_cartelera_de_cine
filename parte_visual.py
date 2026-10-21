@@ -128,7 +128,7 @@ def mostrar_cartelera():
             st.session_state.pantalla = "dulceria"
             st.rerun()
 
-# --- CONTROLADOR CENTRAL ---
+
 if st.session_state.pantalla == "cartelera":
     mostrar_cartelera()
 else:
