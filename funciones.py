@@ -169,3 +169,58 @@ def eliminar_snack():
         print("Snack eliminado")
     else:
         print("Snack no encontrado")
+# FUNCIONES USUARIO
+precio_entrada = 30
+factura = ""
+def ver_cartelera():
+    if len(peliculas) == 0:
+        print("No hay peliculas registradas")
+        return
+    print("===== CARTELERA =====")
+    for i in range(len(peliculas)):
+        print(i + 1, "-", peliculas[i])
+def consultar_pelicula():
+    buscar = input("Ingrese la pelicula: ").strip().lower()
+    if buscar in peliculas:
+        print("Pelicula encontrada")
+    else:
+        print("Pelicula no encontrada")
+def ver_snacks():
+    if len(snacks) == 0:
+        print("No existen snacks")
+        return
+    print("===== SNACKS =====")
+    for i in range(len(snacks)):
+        print(i + 1, "-", snacks[i])
+def consultar_snack():
+    buscar = input("Ingrese snack: ").strip().lower()
+    if buscar in snacks:
+        print("Snack encontrado")
+    else:
+        print("Snack no encontrado")
+def mostrar_precios():
+    print("===== PRECIOS =====")
+    print("Entrada:", precio_entrada, "Bs")
+def comprar_entrada():
+    global factura
+    pelicula = input("Ingrese la pelicula: ").strip().lower()
+    if pelicula not in peliculas:
+        print("Pelicula no disponible")
+        return
+    try:
+        cantidad = int(input("Cantidad de entradas: "))
+    except ValueError:
+        print("Ingrese solo numeros")
+        return
+    total = cantidad * precio_entrada
+    factura = ("\n===== FACTURA =====\n"
+        f"Pelicula: {pelicula}\n"
+        f"Cantidad entradas: {cantidad}\n"
+        f"Total a pagar: {total} Bs\n")
+    print("Compra realizada correctamente")
+def mostrar_factura():
+    global factura
+    if factura == "":
+        print("No existen compras registradas")
+    else:
+        print(factura)

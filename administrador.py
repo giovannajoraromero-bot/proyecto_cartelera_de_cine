@@ -1,4 +1,22 @@
-from funciones import *
+#usuario
+from funciones import registrar_usuario
+from funciones import mostrar_usuarios
+from funciones import buscar_usuario
+from funciones import modificar_usuario
+from funciones import eliminar_usuario
+#peliculas
+from funciones import registrar_pelicula
+from funciones import mostrar_peliculas
+from funciones import buscar_pelicula
+from funciones import modificar_pelicula
+from funciones import eliminar_pelicula
+#Snaks
+from funciones import registrar_snack
+from funciones import mostrar_snacks
+from funciones import buscar_snack
+from funciones import modificar_snack
+from funciones import eliminar_snack
+from funciones import cerrar_sesion
 def menu_administrador():
     while True:
         print("===== MENU ADMINISTRADOR =====")
