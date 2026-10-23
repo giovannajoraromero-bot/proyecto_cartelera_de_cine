@@ -1,17 +1,20 @@
 usuarios = ["hasu", "liz", "asoka", "anahi", "admin"]
 contraseñas = [2468, 1433, 8699, 7310, 1234]
 peliculas = ["toy story","llorona","chaplin"]
-snacks = ["pipocas","coca cola","nachos"]
+from compra_snack import comprar_snack
+precio_snack=0
+
+
 ##Funciones para control de usuarios
 def login():
     usuario = input("Usuario: ").strip().lower()
     try:
-        contraseña = int(input("Contraseña de 4 dígitos: "))
+        contraseña = int(input("Contraseña de 4 digitos: "))
         if contraseña < 1000 or contraseña > 9999:
-            print("La contraseña debe tener 4 dígitos")
+            print("La contraseña debe tener 4 d├¡gitos")
             return "incorrecto"
     except ValueError:
-        print("La contraseña debe ser numérica")
+        print("La contraseña debe ser numerica")
         return "incorrecto"
     for i in range(len(usuarios)):
         if usuario == usuarios[i] and contraseña == contraseñas[i]:
@@ -32,13 +35,13 @@ def registrar_usuario():
     try:
         nueva_contraseña = int(input("Ingrese contraseña: "))
         if nueva_contraseña < 1000 or nueva_contraseña > 9999:
-            print("La contraseña debe tener 4 dígitos")
+            print("La contraseña debe tener 4 digitos")
             return
         if nueva_contraseña in contraseñas:
             print("La contraseña ya existe")
             return
     except ValueError:
-        print("La contraseña debe ser numérica")
+        print("La contraseña debe ser numerica")
         return
     usuarios.append(nuevo_usuario)
     contraseñas.append(nueva_contraseña)
@@ -70,10 +73,10 @@ def modificar_usuario():
         try:
             nueva_contraseña = int(input("Nueva contraseña: "))
             if nueva_contraseña < 1000 or nueva_contraseña > 9999:
-                print("La contraseña debe tener 4 dígitos")
+                print("La contraseña debe tener 4 digitos")
                 return
         except ValueError:
-            print("La contraseña debe ser numérica")
+            print("La contraseña debe ser numerica")
             return
         usuarios[posicion] = nuevo_usuario
         contraseñas[posicion] = nueva_contraseña
@@ -93,82 +96,47 @@ def eliminar_usuario():
     else:
         print("Usuario no encontrado")
 def cerrar_sesion():
-    print("Sesión cerrada correctamente...")
+    print("Sesion cerrada correctamente...")
 ##Funciones para la cartelera....
 def registrar_pelicula():
-    nueva = input("Ingrese película: ").strip().lower()
+    nueva = input("Ingrese la pelicula: ").strip().lower()
     if nueva in peliculas:
-        print("La película ya existe")
+        print("La pelicula ya existe")
         return
     peliculas.append(nueva)
-    print("Película registrada")
+    print("Pelicula registrada")
 def mostrar_peliculas():
     if len(peliculas) == 0:
-        print("No existen películas")
+        print("No existen peliculas")
         return
     print("\n===== CARTELERA =====")
     for i in range(len(peliculas)):
         print(i + 1, "-", peliculas[i])
 def buscar_pelicula():
-    buscar = input("Película a buscar: ").strip().lower()
+    buscar = input("Pelicula a buscar: ").strip().lower()
     if buscar in peliculas:
-        print("Película encontrada")
+        print("Pelicula encontrada")
     else:
-        print("Película no encontrada")
+        print("Pelicula no encontrada")
 def modificar_pelicula():
-    buscar = input("Película a modificar: ").strip().lower()
+    buscar = input("Pelicula a modificar: ").strip().lower()
     if buscar in peliculas:
         posicion = peliculas.index(buscar)
         nueva = input("Nuevo nombre: ").strip().lower()
         peliculas[posicion] = nueva
-        print("Película modificada")
+        print("Pelicula modificada")
     else:
-        print("Película no encontrada")
+        print("Pelicula no encontrada")
 def eliminar_pelicula():
-    buscar = input("Película a eliminar: ").strip().lower()
+    buscar = input("Pelicula a eliminar: ").strip().lower()
     if buscar in peliculas:
         posicion = peliculas.index(buscar)
         peliculas.pop(posicion)
-        print("Película eliminada")
+        print("Pelicula eliminada")
     else:
-        print("Película no encontrada")
-    ##Funciones de horario, salas
-def registrar_snack():
-    nuevo = input("Ingrese snack: ").strip().lower()
-    if nuevo in snacks:
-        print("Snack ya existente")
-        return
-    snacks.append(nuevo)
-    print("Snack registrado")
-def mostrar_snacks():
-    if len(snacks) == 0:
-        print("No existen snacks")
-        return
-    for i in range(len(snacks)):
-        print(i + 1, "-", snacks[i])
-def buscar_snack():
-    buscar = input("Snack a buscar: ").strip().lower()
-    if buscar in snacks:
-        print("Snack encontrado")
-    else:
-        print("Snack no encontrado")
-def modificar_snack():
-    buscar = input("Snack a modificar: ").strip().lower()
-    if buscar in snacks:
-        posicion = snacks.index(buscar)
-        nuevo = input("Nuevo nombre: ").strip().lower()
-        snacks[posicion] = nuevo
-        print("Snack modificado")
-    else:
-        print("Snack no encontrado")
-def eliminar_snack():
-    buscar = input("Snack a eliminar: ").strip().lower()
-    if buscar in snacks:
-        posicion = snacks.index(buscar)
-        snacks.pop(posicion)
-        print("Snack eliminado")
-    else:
-        print("Snack no encontrado")
+        print("Pelicula no encontrada")
+    
+
 # FUNCIONES USUARIO
 precio_entrada = 30
 factura = ""
@@ -185,23 +153,12 @@ def consultar_pelicula():
         print("Pelicula encontrada")
     else:
         print("Pelicula no encontrada")
-def ver_snacks():
-    if len(snacks) == 0:
-        print("No existen snacks")
-        return
-    print("===== SNACKS =====")
-    for i in range(len(snacks)):
-        print(i + 1, "-", snacks[i])
-def consultar_snack():
-    buscar = input("Ingrese snack: ").strip().lower()
-    if buscar in snacks:
-        print("Snack encontrado")
-    else:
-        print("Snack no encontrado")
+
 def mostrar_precios():
     print("===== PRECIOS =====")
     print("Entrada:", precio_entrada, "Bs")
 def comprar_entrada():
+    
     global factura
     pelicula = input("Ingrese la pelicula: ").strip().lower()
     if pelicula not in peliculas:
@@ -216,7 +173,9 @@ def comprar_entrada():
     factura = ("\n===== FACTURA =====\n"
         f"Pelicula: {pelicula}\n"
         f"Cantidad entradas: {cantidad}\n"
-        f"Total a pagar: {total} Bs\n")
+        f"Total a pagar: {total} Bs\n"
+        f"Total Snack: {precio_snack} Bs\n")
+    
     print("Compra realizada correctamente")
 def mostrar_factura():
     global factura
@@ -224,3 +183,4 @@ def mostrar_factura():
         print("No existen compras registradas")
     else:
         print(factura)
+        input("presione ENTER para continuar")

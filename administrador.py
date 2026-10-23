@@ -1,4 +1,3 @@
-#usuario
 from funciones import registrar_usuario
 from funciones import mostrar_usuarios
 from funciones import buscar_usuario
@@ -11,20 +10,19 @@ from funciones import buscar_pelicula
 from funciones import modificar_pelicula
 from funciones import eliminar_pelicula
 #Snaks
-from funciones import registrar_snack
-from funciones import mostrar_snacks
-from funciones import buscar_snack
-from funciones import modificar_snack
-from funciones import eliminar_snack
+from compra_snack import agregar_snack
+from compra_snack import mostrar_snack
+from compra_snack import eliminar_snack
+
 from funciones import cerrar_sesion
 def menu_administrador():
     while True:
         print("===== MENU ADMINISTRADOR =====")
         print("1. Gestionar Usuarios")
-        print("2. Gestionar Películas")
+        print("2. Gestionar Peliculas")
         print("3. Gestionar Snacks")
-        print("4. Cerrar Sesión")
-        opcion = input("Seleccione una opción: ")
+        print("4. Cerrar Sesion")
+        opcion = input("Seleccione una opcion: ")
         match opcion:
             case "1":
                 menu_usuarios()
@@ -36,17 +34,17 @@ def menu_administrador():
                 cerrar_sesion()
                 break
             case _:
-                print("Opción inválida")
+                print("Opcion invílida")
 def menu_usuarios():
     while True:
-        print("===== GESTIÓN DE USUARIOS =====")
+        print("===== GESTION DE USUARIOS =====")
         print("1. Registrar usuario")
         print("2. Mostrar usuarios")
         print("3. Buscar usuario")
         print("4. Modificar usuario")
         print("5. Eliminar usuario")
         print("6. Volver")
-        opcion = input("Seleccione una opción: ")
+        opcion = input("Seleccione una opcion: ")
         match opcion:
             case "1":
                 registrar_usuario()
@@ -61,17 +59,17 @@ def menu_usuarios():
             case "6":
                 break
             case _:
-                print("Opción inválida")
+                print("Opcion invalida")
 def menu_peliculas():
     while True:
-        print("===== GESTIÓN DE PELÍCULAS =====")
-        print("1. Registrar película")
-        print("2. Mostrar películas")
-        print("3. Buscar película")
-        print("4. Modificar película")
-        print("5. Eliminar película")
+        print("===== GESTI├ôN DE PEL├ìCULAS =====")
+        print("1. Registrar pel├¡cula")
+        print("2. Mostrar pel├¡culas")
+        print("3. Buscar pel├¡cula")
+        print("4. Modificar pel├¡cula")
+        print("5. Eliminar pel├¡cula")
         print("6. Volver")
-        opcion = input("Seleccione una opción: ")
+        opcion = input("Seleccione una opci├│n: ")
         match opcion:
             case "1":
                 registrar_pelicula()
@@ -86,29 +84,23 @@ def menu_peliculas():
             case "6":
                 break
             case _:
-                print("Opción inválida")
+                print("Opci├│n inv├ílida")
 def menu_snacks():
     while True:
-        print("===== GESTIÓN DE SNACKS =====")
-        print("1. Registrar snack")
+        print("===== GESTI├ôN DE SNACKS =====")
+        print("1. Agregar snack")
         print("2. Mostrar snacks")
-        print("3. Buscar snack")
-        print("4. Modificar snack")
-        print("5. Eliminar snack")
-        print("6. Volver")
-        opcion = input("Seleccione una opción: ")
+        print("3. Eliminar snack")
+        print("4. Volver")
+        opcion = input("Seleccione una opci├│n: ")
         match opcion:
             case "1":
-                registrar_snack()
+                agregar_snack()
             case "2":
-                mostrar_snacks()
+                mostrar_snack()
             case "3":
-                buscar_snack()
-            case "4":
-                modificar_snack()
-            case "5":
                 eliminar_snack()
-            case "6":
+            case "4":
                 break
             case _:
-                print("Opción inválida")
+                print("Opci├│n inv├ílida")

@@ -1,21 +1,21 @@
-from funciones import ver_cartelera
 from funciones import consultar_pelicula
-from funciones import ver_snacks
-from funciones import consultar_snack
 from funciones import mostrar_precios
 from funciones import comprar_entrada
 from funciones import mostrar_factura
+from compra_snack import comprar_snack
+from funciones import ver_cartelera
+import funciones 
+
 def menu_usuario():
     while True:
         print("===== MENU USUARIO =====")
         print("1. Ver cartelera")
         print("2. Buscar pelicula")
-        print("3. Ver snacks")
-        print("4. Buscar snack")
-        print("5. Ver precios")
-        print("6. Comprar entrada")
-        print("7. Mostrar factura")
-        print("8. Cerrar sesion")
+        print("3. Comprar Snack")
+        print("4. ver precios")
+        print("5. Comprar entrada")
+        print("6. Mostrar factura")
+        print("7. Cerrar sesion")
         opcion = input(
             "Seleccione una opcion: ")
         match opcion:
@@ -24,16 +24,15 @@ def menu_usuario():
             case "2":
                 consultar_pelicula()
             case "3":
-                ver_snacks()
+                comprar_snack()    
+            
             case "4":
-                consultar_snack()
-            case "5":
                 mostrar_precios()
+            case "5":
+                funciones.precio_snack=comprar_entrada()
             case "6":
-                comprar_entrada()
-            case "7":
                 mostrar_factura()
-            case "8":
+            case "7":
                 print("Sesion cerrada correctamente")
                 break
             case _:
